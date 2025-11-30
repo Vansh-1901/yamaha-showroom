@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Remove ALL @apply rules — use Tailwind classes directly in JSX */
+
+/* Optional global font + background */
+body {
+  @apply bg-white text-gray-800 font-sans;
+}
