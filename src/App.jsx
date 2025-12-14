@@ -3,8 +3,8 @@ import React, { useState } from "react";
 const SHOWROOM = {
   name: "Maa Vaishno Automobile - Yamaha Latehar",
   phone: "7008453858",
-  whatsapp: "7008453858",
-  email: "youremail@example.com",
+  whatsapp: "9471155873",
+  email: "gvansh518@gmail.com",
   address: "Latehar, Jharkhand",
   mapLink:
     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.5219635056525!2d84.5925423!3d23.7232153!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398b6d7a03f04ab5%3A0xf4e7129ce910df61!2sLatehar!5e0!3m2!1sen!2sin!4v1701354138437!5m2!1sen!2sin",
@@ -14,21 +14,21 @@ const BIKES = [
   {
     id: 1,
     name: "Yamaha R15 V4",
-    price: "₹1,70,000",
+    
     img: "/bikes/r15v4.png",
     desc: "Sporty 155cc single-cylinder, race-inspired styling.",
   },
   {
     id: 2,
     name: "Yamaha MT-15",
-    price: "₹1,65,000",
+    
     img: "/bikes/mt15.png",
     desc: "Naked streetfighter, agile and punchy.",
   },
   {
     id: 3,
     name: "Yamaha FZ-FI",
-    price: "₹1,10,000",
+   
     img: "/bikes/fzfi.png",
     desc: "Popular commuter with performance touch.",
   },
@@ -38,21 +38,21 @@ const SCOOTERS = [
   {
     id: 1,
     name: "Yamaha Fascino 125",
-    price: "₹86,000",
+    
     img: "/bikes/fascino.png",
     desc: "Stylish, smooth riding 125cc scooter.",
   },
   {
     id: 2,
     name: "Yamaha RayZR 125",
-    price: "₹85,000",
+    
     img: "/bikes/rayzr.png",
     desc: "Sporty scooter with modern features.",
   },
   {
     id: 3,
     name: "Yamaha Aerox 155",
-    price: "₹1,30,000",
+    
     img: "/bikes/aerox.png",
     desc: "High-performance maxi-scooter.",
   },
@@ -111,14 +111,26 @@ export default function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50 text-gray-800">
+    <div className="min-h-screen relative text-gray-800 bg-gray-50 overflow-hidden">
+      {/* Background Yamaha Watermark */}
+      <img
+        src="/images/logo.png"
+        alt="Yamaha watermark"
+        className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
+             opacity-[0.15] w-[500px] max-w-[90vw] pointer-events-none 
+             select-none z-0"
+      />
       {/* Header */}
       <header className="bg-white shadow sticky top-0 z-50">
         <div className="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+          {/* Logo + Name */}
           <div className="flex items-center gap-4">
-            <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
-              MV
-            </div>
+            <img
+              src="/images/logo.png"
+              alt="Yamaha Logo"
+              className="w-14 h-14 object-contain"
+            />
+
             <div>
               <h1 className="text-lg font-semibold">{SHOWROOM.name}</h1>
               <p className="text-sm text-gray-500">
@@ -126,25 +138,27 @@ export default function App() {
               </p>
             </div>
           </div>
+
+          {/* Actions */}
           <div className="flex items-center gap-3">
             <a
               href={`tel:${SHOWROOM.phone}`}
-              className="hidden md:inline-flex items-center gap-2 bg-yellow-500 text-black px-3 py-2 rounded-md font-semibold"
+              className="hidden md:inline-flex items-center gap-2 bg-yellow-500 text-black px-4 py-2 rounded-md font-semibold hover:bg-yellow-400 transition"
             >
               Call Now
             </a>
+
             <button
               onClick={() =>
-                openWhatsApp("Hello, I want to enquire about bikes.")
+                openWhatsApp("Hello, I want to enquire about Yamaha bikes.")
               }
-              className="bg-green-500 text-white px-3 py-2 rounded-md font-medium"
+              className="bg-green-500 text-white px-4 py-2 rounded-md font-medium hover:bg-green-600 transition"
             >
               WhatsApp
             </button>
           </div>
         </div>
       </header>
-
       {/* Hero */}
       <section className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-16">
         <div className="max-w-6xl mx-auto px-4 grid md:grid-cols-2 gap-8 items-center">
@@ -299,9 +313,6 @@ export default function App() {
                     alt={item.name}
                     className="h-40 w-full object-contain rounded"
                   />
-
-                  
-
 
                   <h4 className="mt-3 font-semibold">{item.name}</h4>
                   <p className="text-sm text-gray-600 mt-1">{item.desc}</p>
@@ -491,33 +502,56 @@ export default function App() {
 
         {/* Gallery & Reviews */}
         <section className="grid md:grid-cols-2 gap-6">
+          {/* Photo Gallery */}
           <div className="bg-white rounded shadow p-4 space-y-3">
             <h4 className="text-xl font-semibold">Photo Gallery</h4>
+
             <div className="grid grid-cols-2 gap-3">
-              <div className="h-36 bg-gray-100 rounded flex items-center justify-center">
-                Showroom
-              </div>
-              <div className="h-36 bg-gray-100 rounded flex items-center justify-center">
-                Service Bay
-              </div>
-              <div className="h-36 bg-gray-100 rounded flex items-center justify-center">
-                Delivery
-              </div>
-              <div className="h-36 bg-gray-100 rounded flex items-center justify-center">
-                Team
-              </div>
+              <img
+                src="/images/interior.jpeg"
+                alt="Showroom Interior"
+                className="h-36 w-full object-cover rounded hover:scale-105 transition"
+              />
+
+              <img
+                src="/images/interior2.jpeg"
+                alt="Service Bay"
+                className="h-36 w-full object-cover rounded hover:scale-105 transition"
+              />
+
+              <img
+                src="/images/service.jpeg"
+                alt="Vehicle Delivery"
+                className="h-36 w-full object-cover rounded hover:scale-105 transition"
+              />
+
+              <img
+                src="/images/team.jpeg"
+                alt="Our Team"
+                className="h-36 w-full object-cover rounded hover:scale-105 transition"
+              />
             </div>
           </div>
+
+          {/* Customer Reviews */}
           <div className="bg-white rounded shadow p-4 space-y-3">
             <h4 className="text-xl font-semibold">Customer Reviews</h4>
-            {[
-              "Ramesh Kumar: Excellent service and quick delivery. Recommended!",
-              "Sita Devi: Very polite staff. My bike runs smoother now.",
-            ].map((rev, idx) => (
-              <div key={idx} className="p-3 border rounded text-gray-700">
-                {rev}
+
+            <div className="space-y-3">
+              <div className="p-3 border rounded">
+                <p className="font-semibold">Ankit Kumar</p>
+                <p className="text-sm text-gray-600">
+                  Excellent service and quick delivery. Recommended!
+                </p>
               </div>
-            ))}
+
+              <div className="p-3 border rounded">
+                <p className="font-semibold">Ravi Kumar</p>
+                <p className="text-sm text-gray-600">
+                  Very polite staff. My bike runs smoother now.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
