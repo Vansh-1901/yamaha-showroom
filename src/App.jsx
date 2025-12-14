@@ -117,7 +117,7 @@ export default function App() {
         src="/images/logo.png"
         alt="Yamaha watermark"
         className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-             opacity-[0.15] w-[500px] max-w-[90vw] pointer-events-none 
+             opacity-[0.05] w-[500px] max-w-[90vw] pointer-events-none 
              select-none z-0"
       />
       {/* Header */}
